@@ -1,0 +1,3 @@
+.env
+database/db_config_faiss/*
+database/data/*
