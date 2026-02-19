@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END
-from state import AgentState
-from nodes import  carregar_dados_base, triagem_informacao, gerar_resposta, fallback
+from state.state import AgentState
+from nodes.nodes import  carregar_dados_base, triagem_informacao, gerar_resposta, fallback
 
 def criar_grafo():
     workflow = StateGraph(AgentState)

@@ -2,8 +2,8 @@
 from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 #from db import carregar_base_conhecimento
-from state import AgentState
-from llm_factory import get_model
+from state.state import AgentState
+from factory.llm_factory import get_model
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -11,11 +11,11 @@ load_dotenv()
 
 embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001", api_key=os.getenv("CHAVE_API"))
 
-
+#
 
 def carregar_dados_base(state:AgentState):
     vector_store = FAISS.load_local(
-        "db_config_faiss",
+        "database\db_config_faiss",
         embeddings=embeddings,
         allow_dangerous_deserialization=True
     )
