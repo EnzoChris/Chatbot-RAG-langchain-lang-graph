@@ -58,8 +58,16 @@ perf: otimiza consulta SQL reduzindo JOINs desnecessários
 />
 
 
+
 ## 9️⃣ ci
 ### Mudanças em pipelines (GitHub Actions, GitLab CI etc).
 <
 ci: adiciona workflow de deploy automático
+/>
+
+***
+
+## COMO EXECUTAR?
+<
+uvicorn application.main:server
 />
