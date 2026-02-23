@@ -14,7 +14,7 @@ load_dotenv()
 nome_base_de_dados="data"
 embeddings = get_embedding()
 
-def carregar_documentos_para_vetorizar(state: AgentState):
+def carregar_documentos_para_vetorizar(nome_base_de_dados):
     loader = PyPDFDirectoryLoader(nome_base_de_dados, glob="*.pdf")
     documentos = loader.load()
     
@@ -33,8 +33,5 @@ def carregar_documentos_para_vetorizar(state: AgentState):
     
     vector_store = FAISS.from_documents(chunks, embeddings)
     vector_store.save_local("db_config_faiss")
-
-    print("DEU TUDO CERTO")
-    return {"base_vetorizada":True}
 
 
