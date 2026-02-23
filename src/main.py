@@ -19,7 +19,4 @@ def retornar_resp(pergunta):
 
     result = app.invoke(input)
 
-    #print("***"*30)
-    #print(f"RESULTADO: {result['generate']}")
-    #print("***"*30)
     return {result['generate']}
