@@ -3,6 +3,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_community.vectorstores import FAISS;
 from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
+from factory.llm_factory import get_embedding
 import os
 from dotenv import load_dotenv
 
@@ -11,7 +12,7 @@ load_dotenv()
 
 
 nome_base_de_dados="data"
-embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001", api_key=os.getenv("CHAVE_API"))
+embeddings = get_embedding()
 
 def carregar_documentos_para_vetorizar():
     loader = PyPDFDirectoryLoader(nome_base_de_dados, glob="*.pdf")

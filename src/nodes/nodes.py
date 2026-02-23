@@ -3,13 +3,13 @@ from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 #from db import carregar_base_conhecimento
 from state.state import AgentState
-from factory.llm_factory import get_model
+from factory.llm_factory import get_model, get_embedding
 from dotenv import load_dotenv
 import os
 load_dotenv()
 
 
-embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001", api_key=os.getenv("CHAVE_API"))
+embeddings = get_embedding()
 
 #
 
