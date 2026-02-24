@@ -39,7 +39,6 @@ def perguntar_fast(request:Request, pergunta: str = Form(...)):
 
 
 Upload_dir = "database/data"
-os.makedirs(Upload_dir, exist_ok=True)
 
 @server.post("/carregar-pdf", response_class=HTMLResponse)
 def carregar_pdf(request:Request, arquivo: UploadFile = File(...)):
