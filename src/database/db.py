@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
+from state.state import AgentState
 from langchain_community.vectorstores import FAISS;
 from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
 from factory.llm_factory import get_embedding
@@ -14,7 +14,7 @@ load_dotenv()
 nome_base_de_dados="data"
 embeddings = get_embedding()
 
-def carregar_documentos_para_vetorizar():
+def carregar_documentos_para_vetorizar(nome_base_de_dados):
     loader = PyPDFDirectoryLoader(nome_base_de_dados, glob="*.pdf")
     documentos = loader.load()
     
@@ -32,10 +32,7 @@ def carregar_documentos_para_vetorizar():
     #salvando base_vetorizada
     
     vector_store = FAISS.from_documents(chunks, embeddings)
-    vector_store.save_local("db_config_faiss")
-
-    print("DEU TUDO CERTO")
-
-carregar_documentos_para_vetorizar()
+    vector_store.save_local("database\db_config_faiss")
+    #testar database\db_config_faiss
 
 

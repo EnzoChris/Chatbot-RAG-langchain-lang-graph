@@ -5,3 +5,4 @@ class AgentState(TypedDict):
     base_dados:str
     status:str
     generate:str
+    base_vetorizada:bool

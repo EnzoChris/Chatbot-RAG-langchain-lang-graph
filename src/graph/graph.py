@@ -1,16 +1,20 @@
 from langgraph.graph import StateGraph, END
 from state.state import AgentState
+from database.db import carregar_documentos_para_vetorizar
 from nodes.nodes import  carregar_dados_base, triagem_informacao, gerar_resposta, fallback
 
 def criar_grafo():
     workflow = StateGraph(AgentState)
 
+
+    #workflow.add_node("carregar_doc_e_vetorizar", carregar_documentos_para_vetorizar)
     workflow.add_node("carregar_dados_base", carregar_dados_base)
     workflow.add_node("triagem_informacao", triagem_informacao)
     workflow.add_node("gerar_resposta", gerar_resposta)
     workflow.add_node("fallback", fallback)
 
     workflow.set_entry_point("carregar_dados_base")
+    #workflow.add_edge("carregar_doc_e_vetorizar", "carregar_dados_base")
     workflow.add_edge("carregar_dados_base", "triagem_informacao")
 
     workflow.add_conditional_edges(

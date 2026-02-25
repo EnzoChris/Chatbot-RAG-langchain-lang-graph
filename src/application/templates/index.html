@@ -5,8 +5,8 @@
 </head>
 <body>
 
-    <form action="/perguntar" method="post">
-        <input type="text" name="pergunta" id="pergunta" placeholder="Digite a sua pergunta: ">
+    <form action="/carregar-pdf" method="post" enctype="multipart/form-data">
+        <input type="file" name="arquivo" id="arquivo" placeholder="Digite seu arquivo: ">
         <input type="submit" value="Enviar">
     </form>
     
