@@ -32,6 +32,7 @@ def carregar_documentos_para_vetorizar(nome_base_de_dados):
     #salvando base_vetorizada
     
     vector_store = FAISS.from_documents(chunks, embeddings)
-    vector_store.save_local("db_config_faiss")
+    vector_store.save_local("database\db_config_faiss")
+    #testar database\db_config_faiss
 
 
